@@ -4,6 +4,14 @@
   </h1>
 </div>
 
+This is the React frontend for Jobly, a job search application.
+
+### Tech Stack:
+* Javascript
+* React
+* HTML
+* CSS
+
 ### Instructions:
 
 1. Clone this repository.
