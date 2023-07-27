@@ -9,8 +9,8 @@ This is the React frontend for Jobly, a job search application.
 ### Tech Stack:
 * Javascript
 * React
-* HTML
-* CSS
+* Jest
+* React Router
 
 ### Instructions:
 
@@ -20,7 +20,7 @@ This is the React frontend for Jobly, a job search application.
         npm start
 ### Testing:
    
-* Run all tests:
+* Run all tests (additional tests to be added):
 
       npm test
 
