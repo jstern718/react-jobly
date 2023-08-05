@@ -23,7 +23,7 @@ This is the React frontend for Jobly, a job search application.
 * Run all tests (additional tests to be added):
 
       npm test
-### Routes:
+### Page Views:
 
 * http://localhost:3000/login
 
