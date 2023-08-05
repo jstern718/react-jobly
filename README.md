@@ -31,7 +31,7 @@ This is the React frontend for Jobly, a job search application.
 ---
 * #### http://localhost:3000/signup
 
-  ![signup page](/screenshots/signup.png?raw=true "signup page")
+  ![signup page](/screenshots/signu.png?raw=true "signup page")
 ---
 * #### http://localhost:3000/companies
 
