@@ -25,17 +25,17 @@ This is the React frontend for Jobly, a job search application.
       npm test
 ### Routes:
 
-* POST: /auth/token 
+* http://localhost:3000/login
 
-* POST: /auth/register
+  ![login page](/screenshots/login.png?raw=true "login page")****
 
-* GET/POST: /companies
+* http://localhost:3000/signup
+
+  ![signup page](/screenshots/signup.png?raw=true "signup page")
+
+* http://localhost:3000/companies
 
   ![companies page](/screenshots/companies.png?raw=true "companies page")
 
-* GET/PATCH/DELETE: /companies:handle
-
-* GET/POST: /users
-
-* GET/PATCH/DELETE: /users/:username
+* http://localhost:3000/companies:handle
 
