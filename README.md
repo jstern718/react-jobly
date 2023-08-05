@@ -25,17 +25,17 @@ This is the React frontend for Jobly, a job search application.
       npm test
 ### Page Views:
 
-* http://localhost:3000/login
+* #### http://localhost:3000/login
 
   ![login page](/screenshots/login.png?raw=true "login page")
-
-* http://localhost:3000/signup
+---
+* #### http://localhost:3000/signup
 
   ![signup page](/screenshots/signup.png?raw=true "signup page")
-
-* http://localhost:3000/companies
+---
+* #### http://localhost:3000/companies
 
   ![companies page](/screenshots/companies.png?raw=true "companies page")
-
-* http://localhost:3000/companies:handle
+---
+* #### http://localhost:3000/companies:handle
 
