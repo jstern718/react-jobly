@@ -23,4 +23,19 @@ This is the React frontend for Jobly, a job search application.
 * Run all tests (additional tests to be added):
 
       npm test
+### Routes:
+
+* POST: /auth/token 
+
+* POST: /auth/register
+
+* GET/POST: /companies
+
+  ![companies page](/screenshots/companies.png?raw=true "companies page")
+
+* GET/PATCH/DELETE: /companies:handle
+
+* GET/POST: /users
+
+* GET/PATCH/DELETE: /users/:username
 
