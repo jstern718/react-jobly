@@ -1,16 +1,19 @@
 /**TODO:
- * Jobs List:
+ * Jobs page:
  * -- job card doesn't display company name
  * -- add filtering by other that titleLike
  *
- * Job page:
+ * Job details page:
+ * -- add search bar
  *
- * Company List
- *
- * Companies Page:
- * -- Ugly
- * -- list of jobs does not appear
+ * Companies page
  * -- add filtering by other than nameLike
+ *
+ * Company details Page:
+ * -- expand size of logo img
+ * -- add search bar
+ *
+ *
  */
 
 
