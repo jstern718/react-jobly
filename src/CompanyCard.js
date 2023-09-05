@@ -12,12 +12,15 @@ import "./CompanyCard.css";
  */
 function CompanyCard({ company }) {
   return (
-    <div className="CompanyCard">
-      <Link to={`/companies/${company.handle}`} className="text-dark text-start text-decoration-none">
+    <div className="CompanyCard text-start ms-3">
+        <Link to={`/companies/${company.handle}`} className="text-dark text-start text-decoration-none">
         <div className = "row">
-            <div className="col-3">
-                <img className="rounded img-fluid" src={company.logoUrl}/>
-            </div>
+            {company.logoUrl ?
+            <div className="col-3 logo">
+                <img className="logo rounded img-fluid" src={company.logoUrl}/>
+            </div>:
+            <div className="col-1"></div>
+            }
             <div className="col-8">
                 <h3>{company.name}</h3>
                 <p>{company.description}</p>

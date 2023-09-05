@@ -1,6 +1,7 @@
 .JobCard {
-    background-color: lightskyblue;
+    background-color: lightgray;
     border-radius: 10px;
     margin:30px;
     padding:10px;
+    line-height: 90%;
 }
