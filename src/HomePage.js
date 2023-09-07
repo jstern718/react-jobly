@@ -28,9 +28,9 @@ function HomePage() {
   }
   return (
     <div>
-      <h1>Jobly</h1>
-      <h4>All the jobs in one, convenient place.</h4>
-      <div className="form-group col-4 mx-auto m-4">
+      <h1 className="text-center">Welcome to Jobly</h1>
+      <h4 className="text-center">All the jobs in one, convenient place.</h4>
+      <div className="form-group m-4 d-flex justify-content-center">
         <button onClick={()=>navigateTo("login")} className="btn btn-secondary m-2">Login</button>
         <button onClick={()=>navigateTo("signup")} className="btn btn-secondary m-2">Sign Up</button>
       </div>
