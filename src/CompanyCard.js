@@ -15,11 +15,11 @@ import "./CompanyCard.css";
 
 function CompanyCard({ company }) {
   return (
-    <div className="CompanyCard text-start ms-3 pr-1 pl-1">
+    <div className="CompanyCard text-start m-4 pr-1 pl-1">
         <Link to={`/companies/${company.handle}`} className="text-dark text-start text-decoration-none">
         <div className = "comp-div m-0 p-1">
             {company.logoUrl ?
-                (<div className="row container m-0 p-0">
+                (<div className="row container m-1 p-0">
                     <div className="col-xs-5 col-sm-6 col-md-5 col-lg-3 col-xl-2 p-0">
                         <img className="logo rounded card-img-top p-0 col-xs-12 col-sm-10 " src={company.logoUrl}/>
                     </div>

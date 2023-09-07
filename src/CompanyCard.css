@@ -23,12 +23,12 @@
 }
 
 @media (min-width: 577px) and (max-width:758px ){
-    .logo{
+    /* .logo{
         margin-right: 2px;
         padding: none;
         height: 100%;
         width: auto;
-    }
+    } */
     .comp-div{
         margin: none;
         padding:none;
