@@ -22,9 +22,9 @@ function HomePage() {
 
   if (user) {
     return (
-      <div>
-        <h1>Welcome</h1>
-        <h3>{user.firstName} {user.lastName}</h3>
+      <div >
+        <h1 className="text-center m-2">Hi, {user.firstName} {user.lastName}!</h1>
+        <h1 className="text-center">Welcome to ... <span className='logoText'>Job.ly</span></h1>
       </div>
     );
   }
