@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import "./CompanyCard.css";
+
 /**
  * Component for rendering Company Card
  * contains name, description, logo
@@ -10,10 +11,9 @@ import "./CompanyCard.css";
  *
  * CompanyDetailsPage -> CompanyCard
  */
-// mb-3 mt-2 ml-1 mr-1
-// col-xs-7 col-sm-7 col-md-8 col-lg-8 col-xl-9 mr-n5
 
 function CompanyCard({ company }) {
+
   return (
     <div className="CompanyCard text-start m-4 pr-1 pl-1">
         <Link to={`/companies/${company.handle}`} className="text-dark text-start text-decoration-none">

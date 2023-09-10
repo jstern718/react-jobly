@@ -16,6 +16,8 @@ function JobDetailsPage() {
   const [job, setJob] = useState({});
   const { id } = useParams();
 
+//   console.log("companyHandle", job.companyHandle, "company_handle", job.company_handle);
+
   /** Gets and loads job data on mount */
   useEffect(function () {
     async function getJob() {

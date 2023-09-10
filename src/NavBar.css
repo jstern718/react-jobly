@@ -41,15 +41,15 @@ body{
 }
 
 .collapsed-logo-box{
-    padding-right: 0px;
-    padding-left: 0px;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding-right: 2px;
+    padding-left: -3px;
+    padding-top: 18px;
+    padding-bottom: 18px;
 }
 
 .expanded-logo-box{
-    padding-right: 7px;
-    padding-left: 7px;
+    padding-right: 10px;
+    padding-left: 5px;
     padding-top: 18px;
     padding-bottom: 18px;
 }

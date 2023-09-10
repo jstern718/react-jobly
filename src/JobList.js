@@ -9,6 +9,7 @@ import JobCard from "./JobCard";
  *
  * {JobsPage, CompanyDetailsPage} -> JobsList -> JobCard
  */
+
 function JobList({ jobs }) {
 
   if (!jobs) return <h1>Loading...</h1>;

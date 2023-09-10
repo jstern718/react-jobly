@@ -35,7 +35,7 @@ function SignUpPage({ signUp }) {
         <div>
             {formErrors.length > 0 && formErrors.map(error =>
                 <Alert key={error} type="danger" message={error} />)}
-            <h1 className="m-4">SignUp</h1>
+            <h4 className="m-4 text-center">Please enter your information below:</h4>
             <form onSubmit={handleSubmit}>
                 <div className="form-group col-4 mx-auto text-start m-2">
                     <label htmlFor="username">Username</label>
