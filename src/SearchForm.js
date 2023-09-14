@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 let filterDiv = document.getElementsByClassName("filterDiv");
-console.log("filters", filterDiv);
 
 /**
  * Component for search form on jobs and companies page
@@ -17,24 +16,27 @@ function SearchForm({ searchFunction, term }) {
   const [formData, setFormData] = useState({});
   const [areFiltersActive, setAreFiltersActive] = React.useState(false);
 
+  console.log("term", term);
+
   const addFilters = () => {
      setAreFiltersActive(true);
   };
-  const removeFilters = () => {
-     setAreFiltersActive(false);
-  };
+//   const removeFilters = () => {
+//      setAreFiltersActive(false);
+//   };
   /**
    * Function to save formData whenever input is updated
    * formData like: { search : value }
    */
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setFormData({ [name]: value });
+    setFormData({ ...formData, [name]: value });
   }
 
   /** Submits form information and calls handleFunction from parent component */
   function handleSubmit(evt) {
     evt.preventDefault();
+    console.log("form Data", formData);
     searchFunction(formData);
   }
 
@@ -76,9 +78,13 @@ function SearchForm({ searchFunction, term }) {
             onChange={handleChange}
         />
             <button className="btn bg-secondary btn-outline-success p-2">Submit</button>
-
         </div>
-        <div className="filterDiv d-none input-group">
+
+
+        {areFiltersActive
+        ? <div className="filterDiv input-group">
+            {term === "nameLike"
+            ? <div className="companyFilters input-group">
             <div className="input-group row container-fluid m-1 p-0 flex-nowrap">
                 <label className="input-group-text bg-secondary p-2 col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2" htmlFor="inputGroup1">Min Employees</label>
                 <input className="form-control col-7 col-sm-7 col-md-9 col-lg-10 col-xl-10 col-xxl-10"
@@ -86,38 +92,43 @@ function SearchForm({ searchFunction, term }) {
                     placeholder="Enter number of employees.."
                     onChange={handleChange}
                 />
-            </div>
-            <div className="input-group row container-fluid m-1 p-0 flex-nowrap">
+              </div>
+              <div className="input-group row container-fluid m-1 p-0 flex-nowrap">
                 <label className="input-group-text bg-secondary p-2 col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2" htmlFor="inputGroup2">Max Employees</label>
                 <input className="form-control col-7 col-sm-7 col-md-9 col-lg-10 col-xl-10 col-xxl-10"
                     name="maxEmployees"
                     placeholder="Enter number of employees.."
                     onChange={handleChange}
                 />
+              </div>
             </div>
-            <div className="input-group row container-fluid m-1 p-0  flex-nowrap">
-                <label className="input-group-text bg-secondary p-2 col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2" htmlFor="inputGroup3">Minimum Salary</label>
-                <input className="form-control col-7 col-sm-7 col-md-9 col-lg-10 col-xl-10 col-xxl-10"
-                    name="minSalary"
-                    placeholder="Enter salary number.."
-                    onChange={handleChange}
-                />
-            </div>
-            <div className="input-group row container-fluid m-1 p-0  flex-nowrap">
-                <label className="input-group-text bg-secondary p-2 col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2" htmlFor="inputGroup4" defaultValue="Choose..">Offers Equity</label>
-                <select className="form-select col-7 col-sm-7 col-md-9 col-lg-10 col-xl-10 col-xxl-10"
-                    name="hasEquity"
-                    onChange={handleChange}>
-                    <option>Choose..</option>
-                    <option value={false}>Equity Not Required</option>
-                    <option value={true}>Must Offer Equity</option>
-                </select>
-            </div>
-            <div className="input-group row container-fluid m-1 p-0 flex-nowrap justify-content-center">
-                <button className="btn bg-secondary btn-outline-success p-2 w-50" onClick={removeFilters}>Implement Filter(s)</button>
-            </div>
+            : <div className="jobFilter input-group">
+                <div className="input-group row container-fluid m-1 p-0  flex-nowrap">
+                    <label className="input-group-text bg-secondary p-2 col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2" htmlFor="inputGroup3">Minimum Salary</label>
+                    <input className="form-control col-7 col-sm-7 col-md-9 col-lg-10 col-xl-10 col-xxl-10"
+                        name="minSalary"
+                        placeholder="Enter salary number.."
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="input-group row container-fluid m-1 p-0  flex-nowrap">
+                    <label className="input-group-text bg-secondary p-2 col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2" htmlFor="inputGroup4" defaultValue="Choose..">Offers Equity</label>
+                    <select className="form-select col-7 col-sm-7 col-md-9 col-lg-10 col-xl-10 col-xxl-10"
+                        name="hasEquity"
+                        onChange={handleChange}>
+                        <option>Choose..</option>
+                        <option value={false}>Equity Not Required</option>
+                        <option value={true}>Must Offer Equity</option>
+                    </select>
+                </div>
+                <div className="input-group row container-fluid m-1 p-0 flex-nowrap justify-content-center">
+                    <button className="btn bg-secondary btn-outline-success p-2 w-50">Implement Filter(s)</button>
+                </div>
+            </div>}
+
 
         </div>
+        :<div className="d-none"></div>}
     </form>
   );
 }
