@@ -21,9 +21,26 @@ function SearchForm({ searchFunction, term }) {
   const addFilters = () => {
      setAreFiltersActive(true);
   };
+
 //   const removeFilters = () => {
+//      console.log("formData1", formData);
+//      let input = document.getElementsByClassName("text-input")
+//      if (term === "nameLike"){
+//         setFormData({"nameLike": input.innertext, "minEmloyees": "1", "maxEmployees": "Infinity"});
+//      }
+//      else{
+//         setFormData({"titleLike": input.innertext, "minSalary": "1", "hasEquity": "false"});
+//      };
 //      setAreFiltersActive(false);
+//      console.log("formData2", formData);
 //   };
+
+const removeFilters = (e) => {
+    e.preventDefault();
+    e.target.reset();
+}
+
+
   /**
    * Function to save formData whenever input is updated
    * formData like: { search : value }
@@ -36,7 +53,6 @@ function SearchForm({ searchFunction, term }) {
   /** Submits form information and calls handleFunction from parent component */
   function handleSubmit(evt) {
     evt.preventDefault();
-    console.log("form Data", formData);
     searchFunction(formData);
   }
 
@@ -70,11 +86,11 @@ function SearchForm({ searchFunction, term }) {
 
   return (
     <form className="input-group" onSubmit={handleSubmit}>
-        <div className="input-group m-1 mt-0">
-            <button className="btn bg-secondary btn-outline-success" onClick={addFilters}>Filter</button>
-            <input className="form-control"
+        <div className="input-group m-1 mt-0 flex-nowrap">
+            <button className="btn bg-secondary btn-outline-success dropdown-toggle p-2 col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-xxl-1 text-start" onClick={addFilters}><span className="mx-2">Filter Search</span></button>
+            <input className="form-control col-7 col-sm-8 col-md-10 col-lg-10 col-xl-8 col-xxl-10"
             name={term}
-            placeholder="Enter search term.."
+            placeholder="🔍 Enter search term.."
             onChange={handleChange}
         />
             <button className="btn bg-secondary btn-outline-success p-2">Submit</button>
@@ -82,7 +98,7 @@ function SearchForm({ searchFunction, term }) {
 
 
         {areFiltersActive
-        ? <div className="filterDiv input-group">
+        ? <div className="filterDiv input-group novalidate">
             {term === "nameLike"
             ? <div className="companyFilters input-group">
             <div className="input-group row container-fluid m-1 p-0 flex-nowrap">
@@ -90,7 +106,9 @@ function SearchForm({ searchFunction, term }) {
                 <input className="form-control col-7 col-sm-7 col-md-9 col-lg-10 col-xl-10 col-xxl-10"
                     name="minEmployees"
                     placeholder="Enter number of employees.."
+                    min="1"
                     onChange={handleChange}
+                    id="validationCustom01" value=">=1" required
                 />
               </div>
               <div className="input-group row container-fluid m-1 p-0 flex-nowrap">
@@ -121,9 +139,9 @@ function SearchForm({ searchFunction, term }) {
                         <option value={true}>Must Offer Equity</option>
                     </select>
                 </div>
-                <div className="input-group row container-fluid m-1 p-0 flex-nowrap justify-content-center">
+                {/* <div className="input-group row container-fluid m-1 p-0 flex-nowrap justify-content-center">
                     <button className="btn bg-secondary btn-outline-success p-2 w-50">Implement Filter(s)</button>
-                </div>
+                </div> */}
             </div>}
 
 
