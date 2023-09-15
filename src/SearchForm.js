@@ -40,19 +40,93 @@ const removeFilters = (e) => {
     e.target.reset();
 }
 
+let minEmployeesValue = 1;
+let maxEmployeesValue = undefined;
+let nameLikeValue = undefined;
+let titleLikeValue = undefined;
+
 
   /**
    * Function to save formData whenever input is updated
    * formData like: { search : value }
    */
   function handleChange(evt) {
+    // console.log("evt.target.maxEmployees", evt.target.maxEmployees);
+    // console.log("minEmployees", minEmployees);
+    // console.log("maxEmployees", maxEmployees);
+    let newValue
     const { name, value } = evt.target;
-    setFormData({ ...formData, [name]: value });
+    if (areFiltersActive){
+        if (term === "nameLike"){
+            if (name === "nameLike"){
+                newValue = value;
+                nameLikeValue = value;
+            }
+            if (name === "minEmployees"){
+                console.log("evt", evt);
+                console.log("evt.target", evt.target);
+                console.log("evt.target.value", evt.target.value);
+                if (value < 1){
+                    newValue = 1;
+                    console.log("minEmployees must be 1 or greater");
+                }
+                else if (maxEmployeesValue && value > maxEmployeesValue){
+                    newValue = 1;
+                    console.log("minEmployees must be less than maxEmployees");
+                }
+                else{
+                    newValue = value;
+                }
+                minEmployeesValue = newValue;
+            }
+            if (name === "maxEmployees"){
+                console.log("evt", evt);
+                console.log("evt.target", evt.target);
+                console.log("evt.target.value", evt.target.value);
+                if (minEmployeesValue && value < minEmployeesValue){
+                    newValue = undefined;
+                    console.log("maxEmployees must be greater than minEmployees");
+                }
+                else{
+                    newValue = value;
+                }
+                maxEmployeesValue = newValue;
+            }
+        }
+        else{
+            if (name === "titleLike"){
+                newValue = value;
+                titleLikeValue = value;
+            }
+            if (name === "minSalary"){
+                console.log("evt", evt);
+                console.log("evt.target", evt.target);
+                console.log("evt.target.value", evt.target.value);
+                if (value < 1){
+                    newValue = 1;
+                    console.log("minSalary must be 1 or greater");
+                }
+                else{
+                    newValue = value;
+                }
+                minEmployeesValue = newValue;
+            }
+        }
+        setFormData({ ...formData, [name]: newValue });
+    }
+    else{
+        setFormData({ ...formData, [name]: value });
+    }
   }
 
   /** Submits form information and calls handleFunction from parent component */
   function handleSubmit(evt) {
     evt.preventDefault();
+    console.log("min", minEmployeesValue,"max", maxEmployeesValue, "nameLike", nameLikeValue);
+    console.log("formData", formData)
+    if (formData.minEmployees && !formData.maxEmployees){
+        setFormData({ ...formData, ["maxEmployees"]: undefined });
+    }
     searchFunction(formData);
   }
 
@@ -106,9 +180,10 @@ const removeFilters = (e) => {
                 <input className="form-control col-7 col-sm-7 col-md-9 col-lg-10 col-xl-10 col-xxl-10"
                     name="minEmployees"
                     placeholder="Enter number of employees.."
+                    type="number"
                     min="1"
+                    max="maxEmployeesValue"
                     onChange={handleChange}
-                    id="validationCustom01" value=">=1" required
                 />
               </div>
               <div className="input-group row container-fluid m-1 p-0 flex-nowrap">
@@ -116,6 +191,8 @@ const removeFilters = (e) => {
                 <input className="form-control col-7 col-sm-7 col-md-9 col-lg-10 col-xl-10 col-xxl-10"
                     name="maxEmployees"
                     placeholder="Enter number of employees.."
+                    type="number"
+                    min="minEmployeesValue"
                     onChange={handleChange}
                 />
               </div>
