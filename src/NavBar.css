@@ -20,10 +20,10 @@ body{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style:oblique;
     color:#9fc4c6;
-    font-size: 120%;
-    text-shadow:1px 1px 1px black, 2px 2px 2px gray, 3px 3px 4px cadetblue,  4px 4px 5px lightgray,
-        5px 5px 6px #c5a19f, 5px 5px 10px #9fc5a1, -4px -4px 5px #9fa6c5, -5px -5px 6px #c5a19f,  -5px -5px 10px #9fc5a1;
-    margin:0px;
+    font-size: 60%;
+    text-shadow:1px 1px 1px black, 2px 2px 2px gray, 3px 3px 4px cadetblue,  3px 3px 5px lightgray,
+        2px 3px 3px #c5a19f, 3px 2px 3px #9fc5a1, -4px -4px 5px #9fa6c5, -5px -5px 6px #c5a19f,  -5px -5px 10px #9fc5a1;
+    margin: -5px;
 
 
 }
@@ -60,7 +60,7 @@ body{
 }
 
 li{
-    padding: 1%;
+    padding: 0px;
     text-align: start;
 
 }

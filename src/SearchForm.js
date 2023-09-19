@@ -43,6 +43,8 @@ const removeFilters = (e) => {
 let minEmployeesValue = 1;
 let maxEmployeesValue = undefined;
 let nameLikeValue = undefined;
+let minSalaryValue = undefined;
+let hasEquityValue = undefined;
 let titleLikeValue = undefined;
 
 
@@ -66,6 +68,7 @@ let titleLikeValue = undefined;
                 console.log("evt", evt);
                 console.log("evt.target", evt.target);
                 console.log("evt.target.value", evt.target.value);
+
                 if (value < 1){
                     newValue = 1;
                     console.log("minEmployees must be 1 or greater");
@@ -83,6 +86,7 @@ let titleLikeValue = undefined;
                 console.log("evt", evt);
                 console.log("evt.target", evt.target);
                 console.log("evt.target.value", evt.target.value);
+
                 if (minEmployeesValue && value < minEmployeesValue){
                     newValue = undefined;
                     console.log("maxEmployees must be greater than minEmployees");
@@ -102,6 +106,7 @@ let titleLikeValue = undefined;
                 console.log("evt", evt);
                 console.log("evt.target", evt.target);
                 console.log("evt.target.value", evt.target.value);
+
                 if (value < 1){
                     newValue = 1;
                     console.log("minSalary must be 1 or greater");
@@ -109,7 +114,19 @@ let titleLikeValue = undefined;
                 else{
                     newValue = value;
                 }
-                minEmployeesValue = newValue;
+                minSalaryValue = newValue;
+            }
+            if (name === "hasEquity"){
+                console.log("evt", evt);
+                console.log("evt.target", evt.target);
+                console.log("evt.target.value", evt.target.value);
+                if (value === "choose"){
+                    newValue = false;
+                }
+                else{
+                    newValue = value;
+                }
+                hasEquityValue = newValue;
             }
         }
         setFormData({ ...formData, [name]: newValue });
@@ -122,11 +139,13 @@ let titleLikeValue = undefined;
   /** Submits form information and calls handleFunction from parent component */
   function handleSubmit(evt) {
     evt.preventDefault();
+    console.log("filtersActive", areFiltersActive);
     console.log("min", minEmployeesValue,"max", maxEmployeesValue, "nameLike", nameLikeValue);
     console.log("formData", formData)
     if (formData.minEmployees && !formData.maxEmployees){
         setFormData({ ...formData, ["maxEmployees"]: undefined });
     }
+
     searchFunction(formData);
   }
 

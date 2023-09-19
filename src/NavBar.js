@@ -13,17 +13,17 @@ function NavBar({ logout }) {
   if (user) {
     return (
       <div>
-        <nav className="navbar navbar-dark navbar-expand-sm">
-            <div className="container-fluid">
-              <div className="logo-box expanded-logo-box d-sm-none">
+        <nav className="navbar navbar-dark navbar-expand-sm py-0">
+            <div className="container-fluid p-1">
+              <div className="logo-box expanded-logo-box d-sm-none pl-n5">
                 <NavLink className="logo-link col-4 nav-link" to="/" end>
                   <p className='navLogoText'>Job.ly</p>
                 </NavLink>
               </div>
-              <button className="navbar-toggler m-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <button className="navbar-toggler mx-4 my-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
-              <ul className="navbar-nav me-auto mx-1">
+              <ul className="navbar-nav me-auto mr-1">
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                   <li className="nav-item d-none d-sm-block">
                     <div className="logo-box collapsed-logo-box">
