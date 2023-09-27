@@ -35,7 +35,7 @@ function LoginPage({ login }) {
         <div>
             {formErrors.length > 0 && formErrors.map(error=>
                 <Alert key={error} type="danger" message={error}/>)}
-            <h1>Login</h1>
+            <h4 className="text-center m-4">Please enter your username and password:</h4>
             <form onSubmit={handleSubmit}>
             <div className="form-group col-4 mx-auto text-start m-2">
                 <label htmlFor="username" >Username</label>

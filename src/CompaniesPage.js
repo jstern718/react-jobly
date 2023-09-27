@@ -42,7 +42,7 @@ function CompaniesPage() {
       <SearchForm searchFunction={nameLikeSearch} term="nameLike" />
       {pageState.companies.length === 0 ?
         <h2>No Companies Found</h2> :
-        pageState.companies.map(company => <CompanyCard company={company} key={company.handle} />)}
+        pageState.companies.map(company => <CompanyCard company={company} key={company.handle}/>)}
     </div>
   );
 }

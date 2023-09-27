@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import JobList from "./JobList";
+// import JobList from "./JobList";
+import JobCard from "./JobCard";
 import JoblyApi from "./api";
 import SearchForm from "./SearchForm";
 
@@ -26,11 +27,11 @@ function JobsPage() {
 
   /**
    * Function to pass down to form
-   * Filters job search by title
+   * Filters job search by titleLike
    * Sets array of jobs to GET request results
    * @param {Object} formData
    */
-  async function titleSearch(formData) {
+  async function titleLikeSearch(formData) {
     const jobs = await JoblyApi.getJobs(formData);
     setPageState(oldData => ({ ...oldData, jobs }));
   }
@@ -38,12 +39,15 @@ function JobsPage() {
 
   if (pageState.isLoading) return <h1>Loading...</h1>;
 
+//   <JobList jobs={pageState.jobs}/>}
+    console.log("pageState.jobs", pageState.jobs);
+
   return (
     <div>
-      <SearchForm searchFunction={titleSearch} term="title" />
+      <SearchForm searchFunction={titleLikeSearch} term="titleLike" />
       {pageState.jobs.length === 0 ?
        <h2>No Jobs Found</h2> :
-       <JobList jobs={pageState.jobs}/>}
+       pageState.jobs.map(job => <JobCard job={job} key={job.id} />)}
     </div>
   );
 }

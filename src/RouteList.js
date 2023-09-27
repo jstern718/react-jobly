@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import CompanyDetailsPage from './CompanyDetailsPage';
 import CompaniesPage from './CompaniesPage';
 import JobsPage from './JobsPage';
+import JobDetailsPage from './JobDetailsPage';
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage';
 import ProfilePage from './ProfilePage';
@@ -33,6 +34,8 @@ function RouteList({ login, signUp, updateUser }) {
         <Route path="/companies" element={<CompaniesPage />} />
 
         <Route path="/jobs" element={<JobsPage />} />
+
+        <Route path="/jobs/:id" element={<JobDetailsPage />} />
 
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>

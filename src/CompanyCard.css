@@ -1,6 +1,46 @@
 .CompanyCard {
-    background-color: lightskyblue;
+    background-color: #b9c7d4;
     border-radius: 10px;
-    margin:30px;
-    padding:10px;
+    margin:20px;
+    /* padding:10px; */
+    padding: 2px;
 }
+
+.logo{
+    /* margin: 2px;
+    padding: 0px; */
+    /* height: 100%; */
+    background-size: cover;
+    background-position: left;
+
+
+}
+
+@media (min-width: 759px){
+    .logo{
+        margin: none;
+    }
+}
+
+@media (min-width: 577px) and (max-width:758px ){
+    /* .logo{
+        margin-right: 2px;
+        padding: none;
+        height: 100%;
+        width: auto;
+    } */
+    .comp-div{
+        margin: none;
+        padding:none;
+    }
+}
+
+@media (max-width: 576px){
+    .logo{
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0px;
+        margin-bottom:15px;
+    }
+}
+
